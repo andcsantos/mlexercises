@@ -26,8 +26,10 @@ plt.xlabel('#Clusters')
 plt.ylabel('WCSS')
 plt.show()
 
+init = np.array([[15,39],[15,81], [16,21], [18,20], [25,30]])
+
 ###got 5
-kmeans_n = KMeans(n_clusters=5, init='k-means++', max_iter=300, n_init=10) #achar n otimo
+kmeans_n = KMeans(n_clusters=5, init= 'k-means++', max_iter=300, n_init=10) #achar n otimo
 y_kmeans = kmeans_n.fit_predict(X)
 
 #visualizar os clusters
