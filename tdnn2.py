@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+<<<<<<< HEAD
 Created on Mon May 21 11:40:58 2018
 
 @author: lasiand
+=======
+Created on Sun May 20 15:27:27 2018
+
+@author: Anderson
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 """
 
 import pandas as pd
@@ -13,9 +19,15 @@ from scipy.stats import logistic
 
 dataset = pd.read_csv("treinamento.txt", header=None, sep="\s+")
 inp = dataset.iloc[:,1:].values
+<<<<<<< HEAD
 n_inputs = 15
 d = dataset.iloc[n_inputs:,1:].values
 n_neurons1 = 25
+=======
+d = dataset.iloc[5:,1:].values
+n_neurons1 = 10
+n_inputs = 5
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 n_out = 1
 
 w1 = np.random.rand(n_neurons1, n_inputs+1)
@@ -113,6 +125,7 @@ for j in range(len(X),len(x)):
         y[k,i] = y2[i]
     k +=1
 
+<<<<<<< HEAD
 for i in range(len(y)):
      erro_y = erro_y + abs((esperado[i]-y[i])/esperado[i])
 erro_y = erro_y/len(x)
@@ -129,3 +142,14 @@ plt.plot(range(len(inpp)), inpp, label = 'esperado')
 plt.xlabel("tempo (100s+)")
 plt.legend()
 plt.show()
+=======
+#chk
+chk=0
+for i in range(len(x)):
+    for j in range(n_out):
+        if esperado[i,j] == 1 and y[i,j] == 1:
+            chk += 1
+acc = chk/len(x) * 100
+
+plt.plot(xepoc, yerro)
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d

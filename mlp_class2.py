@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+<<<<<<< HEAD
 Created on Mon May 21 10:16:25 2018
 
 @author: lasiand
+=======
+Created on Sat May 19 20:03:14 2018
+
+@author: Anderson
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 """
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import logistic
+<<<<<<< HEAD
 import time
+=======
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 
 dataset = pd.read_csv("rna_treinamento5.txt", header=None, sep="\s+")
 X = dataset.iloc[:,1:-3].values
@@ -44,9 +53,12 @@ dery2 = np.zeros(n_out)
 yerro = []
 xepoc = []
 
+<<<<<<< HEAD
 tempo = time.time()
 
 
+=======
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 while True:
     em = erro
     erro = 0
@@ -76,15 +88,21 @@ while True:
     xepoc.append(epocas)
     if abs(em-erro)<epsilon:
         break
+<<<<<<< HEAD
     
 tempo = time.time() - tempo
+=======
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 
 #operacao
 teste = pd.read_csv("rna_teste5.txt", header=None, sep="\s+")
 x = teste.iloc[:,1:-3].values
 x = np.insert(x, 0, -1, axis=1)
 y = np.zeros([len(x),n_out])
+<<<<<<< HEAD
 yp = np.zeros([len(x),n_out])
+=======
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 esperado = teste.iloc[:,-3:].values
 erro_y = 0
 for j in range(len(x)):
@@ -94,17 +112,28 @@ for j in range(len(x)):
     for i in range(n_out):
         I2[i] = np.inner(y1, w2[:,i])
         y2[i] = logistic.cdf(I2[i])
+<<<<<<< HEAD
         y[j,i] = y2[i]
     for i in range(n_out):
             if y2[i]>=0.5:
                 yp[j,i]=1
             else: yp[j,i]=0
+=======
+    for i in range(n_out):
+            if y2[i]>=0.5:
+                y[j,i]=1
+            else: y[j,i]=0
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
 
 #chk
 chk=0
 for i in range(len(x)):
     for j in range(n_out):
+<<<<<<< HEAD
         if esperado[i,j] == 1 and yp[i,j] == 1:
+=======
+        if esperado[i,j] == 1 and y[i,j] == 1:
+>>>>>>> 859a664badf763ca7e03556e5bce9aca805ea73d
             chk += 1
 acc = chk/len(x) * 100
 
